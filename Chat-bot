@@ -1,0 +1,31 @@
+echo "# Chat-bot" >> README.md
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/BFirst66/Chat-bot.git
+git push -u origin main
+import random
+
+responses = {
+    "hello": ["Hi there!", "Hello!", "Hey!"],
+    "how are you": ["I'm doing great, thanks for asking!", "I'm okay, how about you?", "I'm a chatbot, so I don't have feelings, but thanks for asking!"],
+    "what's your favorite color": ["I don't have a favorite color, I'm a computer program!", "I don't have eyes, so I don't really care about colors.", "I don't really have a preference."],
+    "what's your name": ["My name is Chatbot!", "I'm Chatbot, nice to meet you!", "I don't really have a name, but you can call me Chatbot."],
+    "bye": ["Goodbye!", "See you later!", "Have a nice day!"]
+}
+
+def chatbot():
+    print("Welcome to the chatbot! Type 'bye' to exit.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "bye":
+            print(random.choice(responses["bye"]))
+            break
+        elif user_input.lower() in responses:
+            print(random.choice(responses[user_input.lower()]))
+        else:
+            print("I'm sorry, I didn't understand what you said.")
+
+if __name__ == '__main__':
+    chatbot()
